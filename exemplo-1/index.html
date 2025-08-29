@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dia da Semana</title>
+</head>
+<body>
+<form action="./calculo-de-tarifa.php" method="post">
+    <label for="ltarifa">Digite o valor da tarifa:</label><br>
+    <input type="text" id="ltarifa" name="tarifa"><br><br>
+
+    <label for="ltipo">Digite o tipo de usuário:</label><br>
+    <select name="tipo" id="ltipo">
+        <option value="Estudante">Estudante</option>
+        <option value="Idoso">Idoso</option>
+        <option value="Trabalhador">Trabalhador</option>
+        <option value="Turista">Turista</option>
+        <option value="PCD">PCD</option>
+    </select><br><br>
+
+    <label for="ldistancia">Digite a distancia em KM:</label><br>
+    <input type="text" id="ldistancia" name="distancia"><br><br>
+    
+    <input type="submit">
+</form>
+</body>
+</html>
