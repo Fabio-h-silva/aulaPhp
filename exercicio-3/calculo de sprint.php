@@ -1,23 +1,30 @@
 <?php
 
-$tarefas = $_POST['tarefas'];
-$sprint = $_POST['sprint'];
-$media = $_POST['media'];
-$dias = $_POST['dias'];
-$i = 0;
+$totalTarefa = $_POST['totalTarefa'];
+$duracaoSprint = $_POST['duracaoSprint'];
+$medioSprint = $_POST['medioSprint'];
+$diasDisponiveis = $_POST['diasDisponiveis'];
 
-echo "<h1>Resultado de Simulação</h1><br><br>";
-echo "<h2>Dados de Entrada</h2><br><br>";
-echo "Tarefas no projeto: $tarefa <br><br>";
-echo "Duração de cada sprint: $sprint dias<br><br>";
-echo "Tarefas concluídas por sprint: $media <br><br>";
-echo "Tempo total disponivel: $dias dias <br><br>";
+$sprintConcluida = 0;
+$tarefaConcluida = 0;
 
+// Enquanto ainda houver dias disponíveis e tarefas a fazer
+while ($diasDisponiveis >= $duracaoSprint && $tarefaConcluida < $totalTarefa) {
+    // mais uma sprint concluída
+    $sprintConcluida++; 
+    // gasta os dias da sprint
+    $diasDisponiveis -= $duracaoSprint;
+    // adiciona tarefas concluídas
+    $tarefaConcluida += $medioSprint;
 
-
-while ( $sprint * $media  ) { 
-    $i = $dias % $tarefas;
-    $sprint = $sprint + $sprint;
-
-
+    // Evita ultrapassar o total de tarefas
+    if ($tarefaConcluida > $totalTarefa) {
+        $tarefaConcluida = $totalTarefa;
+    }
 }
+
+$tarefaRestante = $totalTarefa - $tarefaConcluida;
+
+echo "Numero de Sprint executada: $sprintConcluida <br>";
+echo "Numero de Tarefa executada: $tarefaConcluida <br>";
+echo "Numero de tarefas restantes após o periodo: $tarefaRestante";
