@@ -3,7 +3,8 @@
 $divida = $_POST['divida'];
 $parcela = $_POST['parcela'];
 
-if ($divida >= 0) {
+$valorParcela = $divida / $parcela;
 
-}
-echo "digite um valor maior que 0";
+for($i = 1; $i <= $parcela; $i++) {
+    echo"Parcela $i de $parcela - Valor: R$ $valorParcela - Saldo apos pagamento R$ " .number_format($divida = $divida - $valorParcela, 2, ',', '.'). "<br>";
+};
